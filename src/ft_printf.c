@@ -6,15 +6,52 @@
 /*   By: ibayandu <ibayandu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 20:48:02 by ibayandu          #+#    #+#             */
-/*   Updated: 2024/10/26 22:48:21 by ibayandu         ###   ########.fr       */
+/*   Updated: 2024/10/31 18:30:05 by ibayandu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "printf.h"
+#include "../includes/libft.h"
 #include <libc.h>
-#include <limits.h>
 #include <stdarg.h>
+
+static int	u_digit_count(unsigned int nbr)
+{
+	size_t	counter;
+
+	counter = 0;
+	while (nbr > 9)
+	{
+		nbr /= 10;
+		counter++;
+	}
+	return (counter + 1);
+}
+
+static int	digit_count(int nbr)
+{
+	size_t	counter;
+
+	counter = 0;
+	if (nbr < 0)
+	{
+		counter += 2;
+		nbr /= 10;
+		nbr *= -1;
+	}
+	while (nbr > 9)
+	{
+		nbr /= 10;
+		counter++;
+	}
+	return (counter + 1);
+}
+
+static void	ft_uputnbr_fd(unsigned int unbr, int fd)
+{
+	if (unbr > 9)
+		ft_uputnbr_fd(unbr / 10, fd);
+	ft_putchar_fd(unbr % 10 + 48, fd);
+}
 
 static char	*show_hex(char *str, int is_upper)
 {
@@ -36,6 +73,11 @@ static int	nbr_root_sixteen(long number)
 	return (i);
 }
 
+// static int	digit_count(void)
+// {
+// 	return (0);
+// }
+
 char static	*convert_to_hex(long number, int is_upper)
 {
 	char	*result;
@@ -43,7 +85,9 @@ char static	*convert_to_hex(long number, int is_upper)
 	int		loop;
 
 	loop = nbr_root_sixteen(number);
-	result = malloc(loop);
+	result = ft_calloc(loop, sizeof(char));
+	if (!result)
+		return (NULL);
 	hexchars = "0123456789abcdef";
 	while (loop--)
 	{
@@ -57,22 +101,58 @@ char static	*convert_to_hex(long number, int is_upper)
 
 int static	func_handles(va_list args, char *str)
 {
+	char	*value;
+	char	*p;
+
+	value = va_arg(args, char *);
 	if (*str == 's')
-		ft_putstr_fd(va_arg(args, char *), 1);
+	{
+		if (value == NULL)
+		{
+			ft_putstr_fd("(null)",1);
+			return (6);
+		}	
+		ft_putstr_fd(value, 1);
+		return (ft_strlen((char *)value));
+	}
 	else if (*str == 'i')
-		ft_putnbr_fd(va_arg(args, int), 1);
+	{
+		ft_putnbr_fd((int)value, 1);
+		return (digit_count((int)value));
+	}
 	else if (*str == 'c')
-		ft_putchar_fd(va_arg(args, int), 1);
+	{
+		ft_putchar_fd((int)value, 1);
+		return (1);
+	}
 	else if (*str == 'p')
-		ft_putstr_fd(show_hex(convert_to_hex(va_arg(args, long), 0), 0), 1);
+	{
+		p = show_hex(convert_to_hex((long)value, 0), 0);
+		ft_putstr_fd(p, 1);
+		return (ft_strlen(p));
+	}
 	else if (*str == 'd')
-		ft_putnbr_fd(va_arg(args, int), 1);
+	{
+		ft_putnbr_fd((int)value, 1);
+		return (digit_count((int)value));
+	}
 	else if (*str == 'u')
-		ft_putnbr_fd(va_arg(args, int), 1);
+	{
+		ft_uputnbr_fd((unsigned int)value, 1);
+		return (u_digit_count((unsigned int)value));
+	}
 	else if (*str == 'x')
-		ft_putstr_fd(convert_to_hex(va_arg(args, long), 0), 1);
+	{
+		p = convert_to_hex((long)value, 0);
+		ft_putstr_fd(p, 1);
+		return (ft_strlen(p));
+	}
 	else if (*str == 'X')
-		ft_putstr_fd(convert_to_hex(va_arg(args, long), 1), 1);
+	{
+		p = convert_to_hex((long)value, 1);
+		ft_putstr_fd(p, 1);
+		return (ft_strlen(p));
+	}
 	return (0);
 }
 
@@ -86,40 +166,39 @@ int static	count_persent(char *ptr)
 	return (count);
 }
 
-void	print_func(char *str, va_list args)
+int	print_func(char *str, va_list args)
 {
 	if (!(count_persent(str - 1) % 2) && *str != '%')
 	{
 		ft_putchar_fd(*str, 1);
+		return (1);
 	}
 	else if (*str == '%' && *(str + 1) == '%' && (count_persent(str) % 2))
 	{
 		ft_putchar_fd(*str, 1);
+		return (1);
 	}
 	else if (*str != '%')
-		func_handles(args, str);
+	{
+		return (func_handles(args, str));
+	}
+	else if (ft_isprint(*str) && *str != '%')
+		return (1);
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	char	*s;
+	size_t	counter;
 	va_list	args;
 
+	counter = 0;
 	va_start(args, str);
 	s = (char *)str;
 	while (*s)
 	{
-		print_func(s++, args);
+		counter += print_func(s++, args);
 	}
-	return (0);
-}
-
-int	main(void)
-{
-	char	str[] = "deneme";
-
-	ft_printf("%c %s %p %d %i %u %x %X %%\n", 'c', "deneme", str, 0x01, 0b0101,
-		-14, 0xff, 0xff);
-	printf("%c %s %p %d %i %u %x %X %%\n", 'c', "deneme", str, 0x01, 0b0101,
-		-14, 0xff, 0xff);
+	return (counter);
 }

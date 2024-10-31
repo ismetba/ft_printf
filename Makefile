@@ -1,12 +1,8 @@
-SRCS = 	
+NAME = libftprintf.a
 
-BONUS_SRC = 
+SRCS = src/ft_printf.c
 
 OBJS = ${SRCS:.c=.o}
-
-BONUS_OBJS = ${BONUS_SRC:.c=.o}
-
-NAME = libftprintf.a
 
 CC = cc
 
@@ -16,22 +12,19 @@ RM = rm -f
 
 AR = ar rcs
 
+
 all: ${NAME}
 
 ${NAME}: ${OBJS}
+	cp includes/libft.a $(NAME)
 	${AR} ${NAME} ${OBJS}
 
 ${OBJS}: ${SRCS}
-	${CC} ${CFLAGS} -c ${SRCS}
+	${CC} ${CFLAGS} -c ${SRCS} -o ${OBJS}
 
-bonus: ${NAME} ${BONUS_OBJS}
-	${AR} ${NAME} ${BONUS_OBJS} 
-
-${BONUS_OBJS}: ${BONUS_SRC}
-	${CC} ${CFLAGS} -c ${BONUS_SRC}
 
 clean:
-	${RM} ${OBJS} ${BONUS_OBJS}
+	${RM} ${OBJS}
 
 fclean: clean
 	${RM} ${NAME} 
