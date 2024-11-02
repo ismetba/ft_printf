@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_format.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibayandu <ibayandu <ibayandu@student.42ist +#+  +:+       +#+        */
+/*   By: ibayandu <ibayandu@student.42istanbul.com. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 17:54:02 by cdurro            #+#    #+#             */
-/*   Updated: 2024/11/02 22:00:32 by ibayandu         ###   ########.fr       */
+/*   Created: 2024/11/02 22:12:27 by ibayandu          #+#    #+#             */
+/*   Updated: 2024/11/02 22:12:37 by ibayandu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_string_format(va_list args, int *total_length, int space)
 {

@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hex_format.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibayandu <ibayandu <ibayandu@student.42ist +#+  +:+       +#+        */
+/*   By: ibayandu <ibayandu@student.42istanbul.com. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/15 11:23:41 by cdurro            #+#    #+#             */
-/*   Updated: 2024/11/02 22:00:08 by ibayandu         ###   ########.fr       */
+/*   Created: 2024/11/02 22:11:30 by ibayandu          #+#    #+#             */
+/*   Updated: 2024/11/02 22:13:05 by ibayandu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include"ft_printf.h"
 
 void	ft_hex_format(char c, int *total_length, unsigned int u_converted)
 {

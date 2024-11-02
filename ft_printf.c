@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibayandu <ibayandu <ibayandu@student.42ist +#+  +:+       +#+        */
+/*   By: ibayandu <ibayandu@student.42istanbul.com. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 13:37:41 by cdurro            #+#    #+#             */
-/*   Updated: 2024/11/02 22:00:15 by ibayandu         ###   ########.fr       */
+/*   Created: 2024/11/02 22:11:41 by ibayandu          #+#    #+#             */
+/*   Updated: 2024/11/02 22:12:57 by ibayandu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	ft_bonus_dash(va_list va, const char *str, int *total_length)
 		ft_hex_format(*str, total_length, u_converted);
 }
 
-static void	ft_bonus_integers(va_list va, int *total_length,
-							int plus, int space)
+static void	ft_bonus_integers(va_list va, int *total_length, int plus,
+		int space)
 {
 	int	i_converted;
 
@@ -63,8 +63,8 @@ static void	ft_flag_skip(const char *str, int *plus, int *space, int *index)
 	}
 }
 
-static void	ft_format(va_list va, const char *str,
-					int *total_length, int *index)
+static void	ft_format(va_list va, const char *str, int *total_length,
+		int *index)
 {
 	int	space;
 	int	plus;

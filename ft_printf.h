@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibayandu <ibayandu <ibayandu@student.42ist +#+  +:+       +#+        */
+/*   By: ibayandu <ibayandu@student.42istanbul.com. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 13:39:45 by cdurro            #+#    #+#             */
-/*   Updated: 2024/11/02 21:55:04 by ibayandu         ###   ########.fr       */
+/*   Created: 2024/11/02 22:11:44 by ibayandu          #+#    #+#             */
+/*   Updated: 2024/11/02 22:12:54 by ibayandu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

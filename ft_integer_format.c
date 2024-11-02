@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_integer_format.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibayandu <ibayandu <ibayandu@student.42ist +#+  +:+       +#+        */
+/*   By: ibayandu <ibayandu@student.42istanbul.com. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/15 11:10:25 by cdurro            #+#    #+#             */
-/*   Updated: 2024/11/02 22:00:10 by ibayandu         ###   ########.fr       */
+/*   Created: 2024/11/02 22:11:34 by ibayandu          #+#    #+#             */
+/*   Updated: 2024/11/02 22:13:03 by ibayandu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_integer_format(int *total_length, int i_converted)
 {

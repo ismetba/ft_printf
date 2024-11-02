@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibayandu <ibayandu <ibayandu@student.42ist +#+  +:+       +#+        */
+/*   By: ibayandu <ibayandu@student.42istanbul.com. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/15 10:50:23 by cdurro            #+#    #+#             */
-/*   Updated: 2024/11/02 22:00:05 by ibayandu         ###   ########.fr       */
+/*   Created: 2024/11/02 22:11:26 by ibayandu          #+#    #+#             */
+/*   Updated: 2024/11/02 22:13:08 by ibayandu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_check_base(char *base)
 {

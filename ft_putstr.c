@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibayandu <ibayandu <ibayandu@student.42ist +#+  +:+       +#+        */
+/*   By: ibayandu <ibayandu@student.42istanbul.com. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 17:08:57 by cdurro            #+#    #+#             */
-/*   Updated: 2024/11/02 22:00:26 by ibayandu         ###   ########.fr       */
+/*   Created: 2024/11/02 22:12:00 by ibayandu          #+#    #+#             */
+/*   Updated: 2024/11/02 22:12:43 by ibayandu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

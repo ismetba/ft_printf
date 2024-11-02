@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibayandu <ibayandu <ibayandu@student.42ist +#+  +:+       +#+        */
+/*   By: ibayandu <ibayandu@student.42istanbul.com. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 17:11:25 by cdurro            #+#    #+#             */
-/*   Updated: 2024/11/02 22:00:23 by ibayandu         ###   ########.fr       */
+/*   Created: 2024/11/02 22:11:56 by ibayandu          #+#    #+#             */
+/*   Updated: 2024/11/02 22:12:46 by ibayandu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
