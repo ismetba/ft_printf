@@ -1,7 +1,8 @@
 NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putlnbr_base.c ft_putunbr_base.c ft_check_base.c \
-	ft_string_format.c ft_integer_format.c ft_pointer_format.c ft_unsigned_format.c ft_hex_format.c
+SRCS =  src/ft_putchar.c src/ft_putstr.c src/ft_putnbr.c src/ft_putlnbr_base.c src/ft_putunbr_base.c \
+ 	src/ft_check_base.c src/ft_string_format.c src/ft_integer_format.c src/ft_pointer_format.c src/ft_unsigned_format.c \
+	src/ft_hex_format.c src/ft_printf.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -21,11 +22,10 @@ ${NAME}: ${OBJS}
 	cp ./Libft/libft.a $(NAME)
 	${AR} ${NAME} ${OBJS}
 
-${OBJS}: ${SRCS}
-	${CC} ${CFLAGS} -c ${SRCS}
-
-
-bonus:
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+	
+bonus: all
 	
 
 clean:
