@@ -6,7 +6,7 @@
 /*   By: ibayandu <ibayandu@student.42istanbul.com.tr> +#+  +:+       +#+     */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2024/11/03 21:56:21 by ibayandu             #+#    #+#          */
-/*   Updated: 2024/11/03 22:07:39 by ibayandu            ###   ########.tr    */
+/*   Updated: 2024/11/05 21:32:20 by ibayandu            ###   ########.tr    */
 /*                                                                            */
 /*                                 ▗▄▄▄▖▗▄▄▖  ▗▄▖▗▖  ▗▖▗▄▖ ▗▖  ▗▖▗▄▄▄ ▗▖ ▗▖   */
 /*                                   █  ▐▌ ▐▌▐▌ ▐▌▝▚▞▘▐▌ ▐▌▐▛▚▖▐▌▐▌  █▐▌ ▐▌   */
@@ -72,11 +72,13 @@ static void	ft_format(va_list va, const char *str, int *total_length,
 {
 	int	space;
 	int	plus;
+	int	x;
 
 	plus = 0;
 	space = 0;
 	ft_flag_skip(str, &plus, &space, index);
 	str = str + *index;
+	x = ft_atoi(str);
 	*total_length += ft_atoi(str);
 	while (ft_isdigit(*(str++)))
 		*index += 1;
@@ -84,7 +86,7 @@ static void	ft_format(va_list va, const char *str, int *total_length,
 	if (*str == 'c')
 		ft_putchar(va_arg(va, int), total_length);
 	else if (*str == 's')
-		ft_string_format(va, total_length, space);
+		ft_string_format(va, total_length, space, &x);
 	else if (*str == 'i' || *str == 'd')
 		ft_bonus_integers(va, total_length, plus, space);
 	else if (*str == 'p')
