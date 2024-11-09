@@ -6,7 +6,7 @@
 /*   By: ibayandu <ibayandu@student.42istanbul.com.tr> +#+  +:+       +#+     */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2024/11/03 21:56:21 by ibayandu             #+#    #+#          */
-/*   Updated: 2024/11/05 21:32:20 by ibayandu            ###   ########.tr    */
+/*   Updated: 2024/11/09 17:22:32 by ibayandu            ###   ########.tr    */
 /*                                                                            */
 /*                                 ▗▄▄▄▖▗▄▄▖  ▗▄▖▗▖  ▗▖▗▄▖ ▗▖  ▗▖▗▄▄▄ ▗▖ ▗▖   */
 /*                                   █  ▐▌ ▐▌▐▌ ▐▌▝▚▞▘▐▌ ▐▌▐▛▚▖▐▌▐▌  █▐▌ ▐▌   */
@@ -16,7 +16,7 @@
 
 #include "../includes/ft_printf.h"
 
-static void	ft_bonus_dash(va_list va, const char *str, int *total_length)
+void	ft_bonus_dash(va_list va, const char *str, int *total_length)
 {
 	unsigned int	u_converted;
 
@@ -66,37 +66,39 @@ static void	ft_flag_skip(const char *str, int *plus, int *space, int *index)
 		*index += 1;
 	}
 }
+#include <stdio.h>
+
+#define ABS(x) ((x) < 0 ? -(x) : (x))
 
 static void	ft_format(va_list va, const char *str, int *total_length,
 		int *index)
 {
 	int	space;
 	int	plus;
-	int	x;
+	int	number_of_flag;
 
 	plus = 0;
 	space = 0;
 	ft_flag_skip(str, &plus, &space, index);
 	str = str + *index;
-	x = ft_atoi(str);
+	number_of_flag = ft_atoi(str);
 	*total_length += ft_atoi(str);
+	if (*str == '-')
+	{
+		*index += 1;
+		str++;
+	}
 	while (ft_isdigit(*(str++)))
 		*index += 1;
 	str--;
 	if (*str == 'c')
 		ft_putchar(va_arg(va, int), total_length);
 	else if (*str == 's')
-		ft_string_format(va, total_length, space, &x);
+		ft_string_format(va, total_length, space, number_of_flag);
 	else if (*str == 'i' || *str == 'd')
 		ft_bonus_integers(va, total_length, plus, space);
-	else if (*str == 'p')
-		ft_pointer_format(va, total_length);
-	else if (*str == 'u')
-		ft_unsigned_format(va, total_length);
-	else if (*str == 'x' || *str == 'X')
-		ft_bonus_dash(va, str, total_length);
 	else
-		ft_putchar('%', total_length);
+		ft_router(va, str, total_length);
 }
 
 int	ft_printf(const char *str, ...)

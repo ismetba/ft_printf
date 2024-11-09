@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*   ft_string_format.c                                      :::      ::::::: */
+/*   ft_router.c                                             :::      ::::::: */
 /*                                                         :+:      :+:    :+ */
 /*                                                       +:+ +:+         +:+  */
 /*   By: ibayandu <ibayandu@student.42istanbul.com.tr> +#+  +:+       +#+     */
 /*                                                  +#+#+#+#+#+   +#+         */
-/*   Created: 2024/11/03 21:57:03 by ibayandu             #+#    #+#          */
-/*   Updated: 2024/11/09 17:16:05 by ibayandu            ###   ########.tr    */
+/*   Created: 2024/11/09 13:45:53 by ibayandu             #+#    #+#          */
+/*   Updated: 2024/11/09 15:59:55 by ibayandu            ###   ########.tr    */
 /*                                                                            */
 /*                                 ▗▄▄▄▖▗▄▄▖  ▗▄▖▗▖  ▗▖▗▄▖ ▗▖  ▗▖▗▄▄▄ ▗▖ ▗▖   */
 /*                                   █  ▐▌ ▐▌▐▌ ▐▌▝▚▞▘▐▌ ▐▌▐▛▚▖▐▌▐▌  █▐▌ ▐▌   */
@@ -15,32 +15,15 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
-void	ft_string_format(va_list args, int *total_length, int space, int x)
+void	ft_router(va_list va, const char *str, int *total_length)
 {
-	char	*string_ptr;
-	int		strlen;
-
-	*total_length = *total_length - (x);
-	string_ptr = va_arg(args, char *);
-	if (string_ptr == NULL)
-	{
-		ft_putstr("(null)", total_length);
-		return ;
-	}
-	strlen = ft_strlen(string_ptr);
-	space = 01;
-	while (x > strlen && x > 0)
-	{
-		x = x - 1;
-		ft_putchar(' ', total_length);
-	}
-	if (string_ptr != NULL)
-		ft_putstr(string_ptr, total_length);
-	while (-x > strlen && x < 0)
-	{
-		x++;
-		ft_putchar(' ', total_length);
-	}
+	if (*str == 'p')
+		ft_pointer_format(va, total_length);
+	else if (*str == 'u')
+		ft_unsigned_format(va, total_length);
+	else if (*str == 'x' || *str == 'X')
+		ft_bonus_dash(va, str, total_length);
+	else if (*str == '%')
+		ft_putchar('%', total_length);
 }
