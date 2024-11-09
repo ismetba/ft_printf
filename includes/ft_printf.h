@@ -6,7 +6,7 @@
 /*   By: ibayandu <ibayandu@student.42istanbul.com.tr> +#+  +:+       +#+     */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2024/11/03 21:57:19 by ibayandu             #+#    #+#          */
-/*   Updated: 2024/11/09 16:21:21 by ibayandu            ###   ########.tr    */
+/*   Updated: 2024/11/09 17:40:38 by ibayandu            ###   ########.tr    */
 /*                                                                            */
 /*                                 ▗▄▄▄▖▗▄▄▖  ▗▄▖▗▖  ▗▖▗▄▖ ▗▖  ▗▖▗▄▄▄ ▗▖ ▗▖   */
 /*                                   █  ▐▌ ▐▌▐▌ ▐▌▝▚▞▘▐▌ ▐▌▐▛▚▖▐▌▐▌  █▐▌ ▐▌   */
@@ -36,5 +36,5 @@ void	ft_putunbr_base(unsigned int nbr, char *base, int *total_length);
 void	ft_putlnbr_base(unsigned long nbr, char *base, int *total_length);
 void	ft_router(va_list va, const char *str, int *total_length);
 void	ft_bonus_dash(va_list va, const char *str, int *total_length);
-
+void	ft_init_zero(int *x, int *y);
 #endif

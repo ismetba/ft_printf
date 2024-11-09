@@ -6,7 +6,7 @@
 /*   By: ibayandu <ibayandu@student.42istanbul.com.tr> +#+  +:+       +#+     */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2024/11/03 21:56:21 by ibayandu             #+#    #+#          */
-/*   Updated: 2024/11/09 17:27:16 by ibayandu            ###   ########.tr    */
+/*   Updated: 2024/11/09 17:41:38 by ibayandu            ###   ########.tr    */
 /*                                                                            */
 /*                                 ▗▄▄▄▖▗▄▄▖  ▗▄▖▗▖  ▗▖▗▄▖ ▗▖  ▗▖▗▄▄▄ ▗▖ ▗▖   */
 /*                                   █  ▐▌ ▐▌▐▌ ▐▌▝▚▞▘▐▌ ▐▌▐▛▚▖▐▌▐▌  █▐▌ ▐▌   */
@@ -74,8 +74,7 @@ static void	ft_format(va_list va, const char *str, int *total_length,
 	int	plus;
 	int	number_of_flag;
 
-	plus = 0;
-	space = 0;
+	ft_init_zero(&space, &plus);
 	ft_flag_skip(str, &plus, &space, index);
 	str = str + *index;
 	number_of_flag = ft_atoi(str);

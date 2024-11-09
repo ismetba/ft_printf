@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*   ft_router.c                                             :::      ::::::: */
+/*   ft_helper.c                                             :::      ::::::: */
 /*                                                         :+:      :+:    :+ */
 /*                                                       +:+ +:+         +:+  */
 /*   By: ibayandu <ibayandu@student.42istanbul.com.tr> +#+  +:+       +#+     */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2024/11/09 13:45:53 by ibayandu             #+#    #+#          */
-/*   Updated: 2024/11/09 15:59:55 by ibayandu            ###   ########.tr    */
+/*   Updated: 2024/11/09 17:39:21 by ibayandu            ###   ########.tr    */
 /*                                                                            */
 /*                                 ▗▄▄▄▖▗▄▄▖  ▗▄▖▗▖  ▗▖▗▄▖ ▗▖  ▗▖▗▄▄▄ ▗▖ ▗▖   */
 /*                                   █  ▐▌ ▐▌▐▌ ▐▌▝▚▞▘▐▌ ▐▌▐▛▚▖▐▌▐▌  █▐▌ ▐▌   */
@@ -26,4 +26,10 @@ void	ft_router(va_list va, const char *str, int *total_length)
 		ft_bonus_dash(va, str, total_length);
 	else if (*str == '%')
 		ft_putchar('%', total_length);
+}
+
+void	ft_init_zero(int *x, int *y)
+{
+	*x = 0;
+	*y = 0;
 }
