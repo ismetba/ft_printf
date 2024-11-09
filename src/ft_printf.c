@@ -6,7 +6,7 @@
 /*   By: ibayandu <ibayandu@student.42istanbul.com.tr> +#+  +:+       +#+     */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2024/11/03 21:56:21 by ibayandu             #+#    #+#          */
-/*   Updated: 2024/11/09 17:22:32 by ibayandu            ###   ########.tr    */
+/*   Updated: 2024/11/09 17:27:16 by ibayandu            ###   ########.tr    */
 /*                                                                            */
 /*                                 ▗▄▄▄▖▗▄▄▖  ▗▄▖▗▖  ▗▖▗▄▖ ▗▖  ▗▖▗▄▄▄ ▗▖ ▗▖   */
 /*                                   █  ▐▌ ▐▌▐▌ ▐▌▝▚▞▘▐▌ ▐▌▐▛▚▖▐▌▐▌  █▐▌ ▐▌   */
@@ -66,9 +66,6 @@ static void	ft_flag_skip(const char *str, int *plus, int *space, int *index)
 		*index += 1;
 	}
 }
-#include <stdio.h>
-
-#define ABS(x) ((x) < 0 ? -(x) : (x))
 
 static void	ft_format(va_list va, const char *str, int *total_length,
 		int *index)
